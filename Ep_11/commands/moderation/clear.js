@@ -1,5 +1,5 @@
 module.exports = {
-    name: "clear",
+    name: "purge",
     aliases: ["purge", "nuke"],
     category: "moderation",
     description: "Clears the chat",
@@ -7,7 +7,7 @@ module.exports = {
         if (message.deletable) {
             message.delete();
         }
-    
+
         // Member doesn't have permissions
         if (!message.member.hasPermission("MANAGE_MESSAGES")) {
             return message.reply("You can't delete messages....").then(m => m.delete(5000));
@@ -25,8 +25,8 @@ module.exports = {
 
         let deleteAmount;
 
-        if (parseInt(args[0]) > 100) {
-            deleteAmount = 100;
+        if (parseInt(args[0]) > 1000) {
+            deleteAmount = 1000;
         } else {
             deleteAmount = parseInt(args[0]);
         }
